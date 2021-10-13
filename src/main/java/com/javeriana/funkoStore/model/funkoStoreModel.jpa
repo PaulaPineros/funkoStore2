@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings ptype="MONOLITH" ppkg="com.javeriana.funkoStore" epkg="entities" v="5.4.2" rws="_16338102150642" Pws="_16338102150642" cws="_16338102150642" persistenceUnitName="DEFAULT_PU" sm="false" xs="false" id="_16338102150631" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity compositePrimaryKeyClass="ProductoPK" abs="false" class="Producto" v="true" jbn="false" xre="false" m="false" rootElement="_16338102150631" id="_16338103525043">
+        <ath>monik</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="nombre" id="_163381074141130">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="precio" id="_163381074599131">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="imagen" id="_163381074956832">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="descripcion" id="_163381075370833">
+                <xwm/>
+                <xm/>
+            </basic>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_16338103525654">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Producto.findAll">
+            <query>Select e from Producto e</query>
+        </nq>
+        <nq e="false" name="Producto.findByNombre">
+            <query>Select p from Producto p where p.nombre=:nombre</query>
+        </nq>
+        <nq e="false" name="Producto.findByPrecio">
+            <query>Select p from Producto p where p.precio=:precio</query>
+        </nq>
+        <nq e="false" name="Producto.findByImagen">
+            <query>Select p from Producto p where p.imagen=:imagen</query>
+        </nq>
+        <nq e="false" name="Producto.findByDescripcion">
+            <query>Select p from Producto p where p.descripcion=:descripcion</query>
+        </nq>
+        <nq e="false" name="Producto.findByEditar">
+            <query>Select p from Producto p where p.editar=:editar</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="ItemPK" abs="false" class="Item" v="true" jbn="false" xre="false" m="false" rootElement="_16338102150631" id="_16338103550376">
+        <ath>monik</ath>
+        <attributes>
+            <basic attribute-type="double" v="true" xvt="" name="precioUnitario" id="_163381082099642">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="Integer" v="true" xvt="" name="cantidad" id="_163381082716143">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="Double" v="true" xvt="" name="totalProducto" id="_163381084471245">
+                <xwm/>
+                <xm/>
+            </basic>
+            <one-to-one own="true" orp="false" optional="true" primaryKey="false" connected-entity-id="_16338103525043" v="true" xvt="" name="producto" id="_163381165860965">
+                <xwm/>
+                <xm/>
+            </one-to-one>
+            <one-to-one own="true" orp="false" optional="true" primaryKey="false" connected-entity-id="_163381035997215" v="true" xvt="" name="venta" id="_163381171563869">
+                <xwm/>
+                <xm/>
+            </one-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_16338103550387">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Item.findAll">
+            <query>Select e from Item e</query>
+        </nq>
+        <nq e="false" name="Item.findByPrecioUnitario">
+            <query>Select i from Item i where i.precioUnitario=:precioUnitario</query>
+        </nq>
+        <nq e="false" name="Item.findByCantidad">
+            <query>Select i from Item i where i.cantidad=:cantidad</query>
+        </nq>
+        <nq e="false" name="Item.findByVenta">
+            <query>Select i from Item i where i.venta=:venta</query>
+        </nq>
+        <nq e="false" name="Item.findByTotalProducto">
+            <query>Select i from Item i where i.totalProducto=:totalProducto</query>
+        </nq>
+        <nq e="false" name="Item.findByProducto">
+            <query>Select i from Item i where i.producto=:producto</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="ReportePK" abs="false" class="Reporte" v="true" jbn="false" xre="false" m="false" rootElement="_16338102150631" id="_16338103566729">
+        <ath>monik</ath>
+        <attributes>
+            <basic attribute-type="java.sql.Date" v="true" xvt="" name="fecha" id="_163381086501747">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="totalVentas" id="_163381088580849">
+                <xwm/>
+                <xm/>
+            </basic>
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_163381035997215" v="true" xvt="" name="ventas" id="_163381104495457">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163381035667310">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Reporte.findAll">
+            <query>Select e from Reporte e</query>
+        </nq>
+        <nq e="false" name="Reporte.findByFecha">
+            <query>Select r from Reporte r where r.fecha=:fecha</query>
+        </nq>
+        <nq e="false" name="Reporte.findByTotalVentas">
+            <query>Select r from Reporte r where r.totalVentas=:totalVentas</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="UsuarioPK" abs="false" class="Usuario" v="true" jbn="false" xre="false" m="false" rootElement="_16338102150631" id="_163381035830912">
+        <ath>monik</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="nombre" id="_163381076915435">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="apellido" id="_163381078281236">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="email" id="_163381078631137">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="password" id="_163381078929238">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nn/>
+                </bv>
+            </basic>
+            <basic attribute-type="boolean" v="true" xvt="" name="admin" id="_163381080270440">
+                <xwm/>
+                <xm/>
+            </basic>
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_163381035997215" v="true" xvt="" name="compras" id="_163381106473259">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163381035830913">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Usuario.findAll">
+            <query>Select e from Usuario e</query>
+        </nq>
+        <nq e="false" name="Usuario.findByNombre">
+            <query>Select u from Usuario u where u.nombre=:nombre</query>
+        </nq>
+        <nq e="false" name="Usuario.findByApellido">
+            <query>Select u from Usuario u where u.apellido=:apellido</query>
+        </nq>
+        <nq e="false" name="Usuario.findByEmail">
+            <query>Select u from Usuario u where u.email=:email</query>
+        </nq>
+        <nq e="false" name="Usuario.findByPassword">
+            <query>Select u from Usuario u where u.password=:password</query>
+        </nq>
+        <nq e="false" name="Usuario.findByCompras">
+            <query>Select u from Usuario u where u.compras=:compras</query>
+        </nq>
+        <nq e="false" name="Usuario.findByAdmin">
+            <query>Select u from Usuario u where u.admin=:admin</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="VentaPK" abs="false" class="Venta" v="true" jbn="false" xre="false" m="false" rootElement="_16338102150631" id="_163381035997215">
+        <ath>monik</ath>
+        <attributes>
+            <basic attribute-type="java.sql.Date" v="true" xvt="" name="fecha" id="_163381056240023">
+                <xwm/>
+                <xm/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="totalVenta" id="_163381069662429">
+                <xwm/>
+                <xm/>
+            </basic>
+            <one-to-many orp="false" own="true" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_16338103550376" v="true" xvt="" name="items" id="_163381168336067">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+            <one-to-one own="true" orp="false" optional="true" primaryKey="false" connected-entity-id="_163381035830912" v="true" xvt="" name="usuario" id="_163381137279861">
+                <xwm/>
+                <xm/>
+            </one-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" id="_163381035997216">
+                <xwm/>
+                <xm/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Venta.findAll">
+            <query>Select e from Venta e</query>
+        </nq>
+        <nq e="false" name="Venta.findByFecha">
+            <query>Select v from Venta v where v.fecha=:fecha</query>
+        </nq>
+        <nq e="false" name="Venta.findByCarrito">
+            <query>Select v from Venta v where v.carrito=:carrito</query>
+        </nq>
+        <nq e="false" name="Venta.findByUsuario">
+            <query>Select v from Venta v where v.usuario=:usuario</query>
+        </nq>
+        <nq e="false" name="Venta.findByUsuario">
+            <query>Select v from Venta v where v.usuario=:usuario</query>
+        </nq>
+        <nq e="false" name="Venta.findByTotalVenta">
+            <query>Select v from Venta v where v.totalVenta=:totalVenta</query>
+        </nq>
+    </entity>
+    <c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
+        <ct>java.util.Map</ct>
+        <ct>java.util.Collection</ct>
+        <cit>java.util.ArrayList</cit>
+        <cit>java.util.LinkedList</cit>
+        <cit>java.util.HashSet</cit>
+        <cit>java.util.TreeSet</cit>
+        <cit>java.util.HashMap</cit>
+    </c>
+    <wsl>
+        <ws n="Main" id="_16338102150642">
+            <i ref="_163381035830912" x="94" y="302"/>
+            <i ref="_16338103566729" x="420" y="365"/>
+            <i ref="_16338103525043" x="612" y="365"/>
+            <i ref="_16338103550376" x="503" y="83"/>
+            <i ref="_163381035997215" x="226" y="32"/>
+        </ws>
+    </wsl>
+</entity-mappings>
