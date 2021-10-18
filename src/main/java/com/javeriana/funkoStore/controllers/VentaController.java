@@ -55,7 +55,7 @@ public class VentaController {
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public String deleteProduct(@PathVariable Long id) {
+	public String deleteVenta(@PathVariable Long id) {
 		ventaService.deleteVenta(id);
 		return "Venta eliminada exitosamente";
 	}
