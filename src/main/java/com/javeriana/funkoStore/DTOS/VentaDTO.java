@@ -1,33 +1,19 @@
-package com.javeriana.funkoStore.entities;
+package com.javeriana.funkoStore.DTOS;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import com.javeriana.funkoStore.entities.Item;
+import com.javeriana.funkoStore.entities.Usuario;
 
-/**
- * @author monik
- */
-@Entity
-public class Venta {
-
-    @Id
-    @GeneratedValue
+public class VentaDTO {
+	
     private Long id;
-    @Basic
     private Long fecha;
-    @Basic
     private double totalVenta;
-    @OneToOne
     private Usuario usuario;
-    @OneToMany
     private List<Item> items;
-
-    public Long getId() {
+    
+	public Long getId() {
         return id;
     }
 
@@ -77,5 +63,4 @@ public class Venta {
     public void removeItem(Item item) {
         getItems().remove(item);
     }
-
 }

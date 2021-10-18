@@ -1,30 +1,17 @@
-package com.javeriana.funkoStore.entities;
+package com.javeriana.funkoStore.DTOS;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-/**
- * @author monik
- */
-@Entity
-public class Reporte {
+import com.javeriana.funkoStore.entities.Venta;
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    @Basic
+public class ReporteDTO {
+
+	private Long id;
     private Long fecha;
-    @Basic
     private double totalVentas;
-    @OneToMany
     private List<Venta> ventas;
-   
-
+    
     public Long getId() {
         return id;
     }
@@ -55,24 +42,10 @@ public class Reporte {
         }
         return ventas;
     }
-    
-    public void calcularTotalVentas() {
-    	this.totalVentas = 0;
-    	for (Venta v : this.ventas) {
-    		this.totalVentas += v.getTotalVenta();
-    	}
-    }
 
     public void setVentas(List<Venta> ventas) {
         this.ventas = ventas;
     }
 
-    public void addVenta(Venta venta) {
-        getVentas().add(venta);
-    }
-
-    public void removeVenta(Venta venta) {
-        getVentas().remove(venta);
-    }
-
 }
+

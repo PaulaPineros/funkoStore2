@@ -15,7 +15,7 @@ public class VentaService implements IVentaService{
 	}
 	
 	@Override
-	public void deleteProduct(Long id) {
+	public void deleteVenta(Long id) {
 		java.util.Optional<Venta> v = ventaRepository.findById(id);
 		if(v != null){
 			ventaRepository.deleteById(id);
@@ -31,4 +31,10 @@ public class VentaService implements IVentaService{
 	public Iterable<Venta> getAllVentas() {
 		return ventaRepository.findAll();
 	}
+	
+	@Override
+	public Iterable<Venta> getVentasFecha(Long fecha) {
+		return ventaRepository.findByDate(fecha);
+	}
+
 }
