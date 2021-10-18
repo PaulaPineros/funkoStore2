@@ -42,7 +42,7 @@ public class ProductoService implements IProductoService{
 	}
 	
 	@Override
-	public Page<Producto> getAllProdcuts(PageRequest pageRequest) {
+	public Page<Producto> getAllProducts(PageRequest pageRequest) {
 		return productoRepository.findAll(pageRequest);
 	}
 
