@@ -1,8 +1,5 @@
 package com.javeriana.funkoStore;
 
-import java.util.ArrayList;
-
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +9,9 @@ import com.javeriana.funkoStore.entities.Item;
 import com.javeriana.funkoStore.entities.Producto;
 import com.javeriana.funkoStore.entities.Usuario;
 import com.javeriana.funkoStore.entities.Venta;
+import com.javeriana.funkoStore.repositories.ItemRepository;
 import com.javeriana.funkoStore.repositories.ProductoRepository;
+import com.javeriana.funkoStore.repositories.UsuarioRepository;
 import com.javeriana.funkoStore.repositories.VentaRepository;
 
 @Configuration
@@ -22,6 +21,12 @@ public class LoadData {
 	
 	@Autowired
 	VentaRepository ventaRepository;
+	
+	@Autowired
+	ItemRepository itemRepository;
+	
+	@Autowired
+	UsuarioRepository usuarioRepository;
 	
 	@Bean
 	CommandLineRunner initDB() {
@@ -137,62 +142,95 @@ public class LoadData {
 			u1.setEmail("ma@gmail.com");
 			u1.setPassword("xxx");
 			u1.setAdmin(false);
+			usuarioRepository.save(u1);
 			
 			Usuario u2 = new Usuario();
-			u1.setNombre("Paula");
-			u1.setApellido("Piñeros");
-			u1.setEmail("pp@gmail.com");
-			u1.setPassword("xxx");
-			u1.setAdmin(false);
-			
-			Item i1 = new Item();
-			i1.setPrecioUnitario(p14.getPrecio());
-			i1.setCantidad(1);
-			i1.setTotalProducto(p14.getPrecio());
-			i1.setProducto(p14);
-			
-			Item i2 = new Item();
-			i2.setPrecioUnitario(p1.getPrecio());
-			i2.setCantidad(2);
-			i2.setTotalProducto(p1.getPrecio()*2);
-			i2.setProducto(p1);
-			
-			Item i3 = new Item();
-			i3.setPrecioUnitario(p4.getPrecio());
-			i3.setCantidad(1);
-			i3.setTotalProducto(p4.getPrecio());
-			i3.setProducto(p4);
+			u2.setNombre("Paula");
+			u2.setApellido("Piñeros");
+			u2.setEmail("pp@gmail.com");
+			u2.setPassword("xxx");
+			u2.setAdmin(false);
+			usuarioRepository.save(u2);
 			
 			Venta v1 = new Venta();
 			v1.setFecha((long) 20201004);
 			v1.setUsuario(u1);
-			v1.getItems().add(i1);
-			v1.getItems().add(i2);
 			v1.setTotalVenta(235000);
 			ventaRepository.save(v1);
 			
 			Venta v2 = new Venta();
 			v2.setFecha((long) 20211004);
 			v2.setUsuario(u1);
-			v2.getItems().add(i1);
 			v2.setTotalVenta(75000);
 			ventaRepository.save(v2);
 			
 			Venta v3 = new Venta();
 			v3.setFecha((long) 20200120);
 			v3.setUsuario(u2);
-			v3.getItems().add(i1);
-			v3.getItems().add(i2);
-			v3.getItems().add(i3);
 			v3.setTotalVenta(310000);
 			ventaRepository.save(v3);
 			
 			Venta v4 = new Venta();
 			v4.setFecha((long) 20190315);
 			v4.setUsuario(u2);
-			v4.getItems().add(i2);
 			v4.setTotalVenta(160000);
 			ventaRepository.save(v4);
+			
+			Item i1 = new Item();
+			i1.setPrecioUnitario(p14.getPrecio());
+			i1.setCantidad(1);
+			i1.setTotalProducto(p14.getPrecio());
+			i1.setProducto(p14);
+			i1.setVenta(v1);
+			itemRepository.save(i1);
+			
+			Item i2 = new Item();
+			i2.setPrecioUnitario(p1.getPrecio());
+			i2.setCantidad(2);
+			i2.setTotalProducto(p1.getPrecio()*2);
+			i2.setProducto(p1);
+			i2.setVenta(v1);
+			itemRepository.save(i2);
+			
+			Item i3 = new Item();
+			i3.setPrecioUnitario(p4.getPrecio());
+			i3.setCantidad(1);
+			i3.setTotalProducto(p4.getPrecio());
+			i3.setProducto(p4);
+			i3.setVenta(v2);
+			itemRepository.save(i3);
+			
+			Item i4 = new Item();
+			i4.setPrecioUnitario(p14.getPrecio());
+			i4.setCantidad(1);
+			i4.setTotalProducto(p14.getPrecio());
+			i4.setProducto(p14);
+			i4.setVenta(v3);
+			itemRepository.save(i4);
+			
+			Item i5 = new Item();
+			i5.setPrecioUnitario(p1.getPrecio());
+			i5.setCantidad(2);
+			i5.setTotalProducto(p1.getPrecio()*2);
+			i5.setProducto(p1);
+			i5.setVenta(v4);
+			itemRepository.save(i5);
+			
+			Item i6 = new Item();
+			i6.setPrecioUnitario(p4.getPrecio());
+			i6.setCantidad(1);
+			i6.setTotalProducto(p4.getPrecio());
+			i6.setProducto(p4);
+			i6.setVenta(v4);
+			itemRepository.save(i6);
+			
+			Item i7 = new Item();
+			i7.setPrecioUnitario(p14.getPrecio());
+			i7.setCantidad(1);
+			i7.setTotalProducto(p14.getPrecio());
+			i7.setProducto(p14);
+			i7.setVenta(v4);
+			itemRepository.save(i7);
 		};
 	}
 }

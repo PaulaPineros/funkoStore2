@@ -3,7 +3,9 @@ package com.javeriana.funkoStore.entities;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -24,7 +26,7 @@ public class Venta {
     private double totalVenta;
     @OneToOne
     private Usuario usuario;
-    @OneToMany
+    @OneToMany(mappedBy = "venta", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Item> items;
 
     public Long getId() {
