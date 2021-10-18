@@ -3,6 +3,7 @@ package com.javeriana.funkoStore.entities;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,9 +23,9 @@ public class Venta {
     private Long fecha;
     @Basic
     private double totalVenta;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Usuario usuario;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Item> items;
 
     public Long getId() {

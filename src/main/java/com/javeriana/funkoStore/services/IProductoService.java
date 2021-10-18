@@ -1,4 +1,4 @@
-package com.javeriana.services;
+package com.javeriana.funkoStore.services;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -1,11 +1,14 @@
-package com.javeriana.services;
+package com.javeriana.funkoStore.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
 import com.javeriana.funkoStore.entities.Producto;
 import com.javeriana.funkoStore.repositories.ProductoRepository;
 
+@Service
 public class ProductoService implements IProductoService{
 	
 	@Autowired

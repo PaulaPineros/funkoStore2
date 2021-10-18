@@ -1,4 +1,4 @@
-package com.javeriana.services;
+package com.javeriana.funkoStore.services;
 
 import com.javeriana.funkoStore.entities.Venta;
 

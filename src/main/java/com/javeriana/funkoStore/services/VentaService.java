@@ -1,10 +1,12 @@
-package com.javeriana.services;
+package com.javeriana.funkoStore.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.javeriana.funkoStore.entities.Venta;
 import com.javeriana.funkoStore.repositories.VentaRepository;
 
+@Service
 public class VentaService implements IVentaService{
 	@Autowired
 	VentaRepository ventaRepository;

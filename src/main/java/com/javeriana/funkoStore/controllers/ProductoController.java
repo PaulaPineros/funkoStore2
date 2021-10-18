@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.javeriana.funkoStore.DTOS.ProductoDTO;
 import com.javeriana.funkoStore.entities.Producto;
-import com.javeriana.services.IProductoService;
+import com.javeriana.funkoStore.services.IProductoService;
 
 @RestController
 @RequestMapping("productos")
@@ -30,8 +30,8 @@ public class ProductoController {
 	private IProductoService productoService;
 	
 	@GetMapping("getProductos/{page}/{size}")
-	Page<ProductoDTO> getAllProductos(@PathVariable int pagina, @PathVariable int size) {
-		return transformarDTO(productoService.getAllProducts(PageRequest.of(pagina, size)), PageRequest.of(pagina, size));
+	Page<ProductoDTO> getAllProductos(@PathVariable("page") int page, @PathVariable("size") int size) {
+		return transformarDTO(productoService.getAllProducts(PageRequest.of(page, size)), PageRequest.of(page, size));
 	}
 
 	@PutMapping("actualizar/{id}")
@@ -51,11 +51,11 @@ public class ProductoController {
 	@DeleteMapping
 	public String deleteAll() {
 		productoService.deleteAllProducts();
-		return "Respuesta desde el metodo DELETE";
+		return "Se han eliminado todos los productos";
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public String deleteProduct(@PathVariable Long id) {
+	public String deleteProduct(@PathVariable("id") Long id) {
 		productoService.deleteProduct(id);
 		return "Producto eliminado exitosamente";
 	}

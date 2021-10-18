@@ -1,6 +1,7 @@
 package com.javeriana.funkoStore.entities;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,9 +22,9 @@ public class Item {
     private Integer cantidad;
     @Basic
     private Double totalProducto;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Producto producto;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Venta venta;
 
     public Long getId() {
