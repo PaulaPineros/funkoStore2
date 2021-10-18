@@ -3,6 +3,7 @@ package com.javeriana.funkoStore.entities;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -34,7 +35,11 @@ public class Usuario {
     private String password;
     @Basic
     private boolean admin;
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL)
+=======
+    @OneToMany( mappedBy = "usuario", cascade = CascadeType.REMOVE)
+>>>>>>> 4503f815dbc2d328b39b546112b4f05929682b6b
     private List<Venta> compras;
 
     public Long getId() {

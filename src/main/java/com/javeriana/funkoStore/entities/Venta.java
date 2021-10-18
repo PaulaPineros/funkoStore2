@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -25,7 +26,11 @@ public class Venta {
     private double totalVenta;
     @OneToOne(cascade = CascadeType.ALL)
     private Usuario usuario;
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL)
+=======
+    @OneToMany(mappedBy = "venta", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+>>>>>>> 4503f815dbc2d328b39b546112b4f05929682b6b
     private List<Item> items;
 
     public Long getId() {
