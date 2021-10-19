@@ -10,9 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-//import org.hibernate.annotations.CascadeType;
-import javax.persistence.CascadeType;
-
 
 
 /**
@@ -35,11 +32,7 @@ public class Usuario {
     private String password;
     @Basic
     private boolean admin;
-<<<<<<< HEAD
-    @OneToMany(cascade = CascadeType.ALL)
-=======
     @OneToMany( mappedBy = "usuario", cascade = CascadeType.REMOVE)
->>>>>>> 4503f815dbc2d328b39b546112b4f05929682b6b
     private List<Venta> compras;
 
     public Long getId() {

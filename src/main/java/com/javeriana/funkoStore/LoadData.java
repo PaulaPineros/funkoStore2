@@ -29,8 +29,8 @@ public class LoadData {
 	UsuarioRepository usuarioRepository;
 	
 	@Bean
-	CommandLineRunner initDB() {
-		return args ->{
+	CommandLineRunner initDB() { 
+		return args ->{/*
 			Producto p1 = new Producto();
 			p1.setNombre("Aang");	
 			p1.setPrecio(80000);
@@ -230,7 +230,7 @@ public class LoadData {
 			i7.setTotalProducto(p14.getPrecio());
 			i7.setProducto(p14);
 			i7.setVenta(v4);
-			itemRepository.save(i7);
+			itemRepository.save(i7);*/
 		};
 	}
 }
